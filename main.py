@@ -22,10 +22,13 @@ while True:
         exit()
     if event == "Exit":
         break
-    feet = float(value["feet"])
-    inches = float(value["inches"])
+    try:
+        feet = float(value["feet"])
+        inches = float(value["inches"])
 
-    result = convert(feet, inches)
-    window["output"].update(value=f"{result}metres",text_color="white")
+        result = convert(feet, inches)
+        window["output"].update(value=f"{result}metres",text_color="white")
+    except ValueError:
+        sg.popup("Please enter values")
 
 window.close()
